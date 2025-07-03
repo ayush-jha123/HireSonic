@@ -1,6 +1,6 @@
 import { generateText } from "ai";
 import { google } from "@ai-sdk/google";
-import Interview from "../models/Interview.js";
+import Interview from "../models/interview.js";
 import mongoose from "mongoose";
 
 const COVER_IMAGES = [
@@ -13,7 +13,7 @@ const COVER_IMAGES = [
 
 export const createInterview = async (req, res) => {
     const { type, role, level, techstack, amount, userId } = req.body;
-
+    console.log("Received request to create interview:", req.body);
     try {
         // Validate required fields
         if (!type || !role || !level || !techstack || !amount || !userId) {
@@ -77,6 +77,42 @@ export const createInterview = async (req, res) => {
     }
 };
 
-export const getInterviews = async (req, res) => {
-    return res.status(200).json({ success: true, data: "Thank you!" });
+export const getInterview = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        // Validate interviewId
+        // if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+        //     return res.status(400).json({ 
+        //         success: false, 
+        //         error: "Invalid or missing interviewId" 
+        //     });
+        // }
+
+        // Fetch interviews for the user
+        const interview = await Interview.find({ _id: id }).sort({ createdAt: -1 });
+        
+        
+        return res.status(200).json({
+            success: true,
+            interview
+        });
+
+    } catch (error) {
+        console.error("Error fetching interviews:", error);
+        return res.status(500).json({ success: false, error: error.message });
+    }
+};
+
+export const getAllInterviews = async (req, res) => {
+    try {
+        const interviews = await Interview.find().sort({ createdAt: -1 });
+        return res.status(200).json({
+            success: true,
+            interviews
+        });
+    } catch (error) {
+        console.error("Error fetching all interviews:", error);
+        return res.status(500).json({ success: false, error: error.message });
+    }
 };
