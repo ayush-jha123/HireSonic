@@ -40,7 +40,7 @@ const InterviewForm = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/interview/generate', {
+      const response = await fetch('https://hiresonic.onrender.com/interview/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

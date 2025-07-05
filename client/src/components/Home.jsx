@@ -29,7 +29,7 @@ const Home = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('http://localhost:5000/user/logout', {
+      const response = await fetch('https://hiresonic.onrender.com/user/logout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const Home = () => {
           return;
         }
 
-        const response = await fetch(`http://localhost:5000/interview/user/${userid}`, {
+        const response = await fetch(`https://hiresonic.onrender.com/interview/user/${userid}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -94,64 +94,53 @@ const Home = () => {
   // Remove any accidental usage of <link> (lowercase) instead of <Link> (uppercase from react-router-dom)
   // Make sure you are not using <link> (HTML tag) with children anywhere in your code.
   return (
-    <div className="w-full h-full">
-      <div className="bg-white mx-2 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-24 my-4 sm:my-6 md:my-8 lg:my-10 border-2 border-orange-500 rounded-2xl p-2 sm:p-4 md:p-6 max-h-full shadow-lg shadow-orange-800">
+    <div className="w-full  h-full ">
+      <div className="bg-white m-[5rem] ml-[8rem] border-2 border-orange-500 rounded-2xl p-2 max-h-full shadow-lg shadow-orange-800">
         <div className="flex flex-col items-center justify-center w-full h-full">
-          <div className="w-full h-16 sm:h-20 md:h-24 lg:h-32 rounded-lg flex justify-between px-2 sm:px-6 md:px-12 lg:px-16 items-center">
-            <div className="flex flex-row space-x-2 sm:space-x-3 items-center p-2 sm:p-4">
-              <img src={rocket} alt="logo" className="w-8 sm:w-12 md:w-16 lg:w-20" />
-              <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold font-serif text-orange-700">
-                HireSonic
-              </h1>
-            </div>
-            {isLoggedIn ? (
-              <button 
-                onClick={handleLogout}
-                className="bg-red-500 text-white px-3 sm:px-4 py-2 text-center items-center flex justify-center rounded-lg text-xs sm:text-sm hover:bg-red-600"
-              >
-                Logout
-              </button>
-            ) : (
-              <Link to="/signup" className="bg-orange-500 text-white px-3 sm:px-4 py-2 text-center items-center flex justify-center rounded-lg text-xs sm:text-sm">
-                LogIn
-              </Link>
-            )}
+        <div className="w-full h-[8rem] rounded-lg  flex justify-between px-16 items-center">
+          <div className="flex flex-row space-x-3 items-center p-4">
+            <img src={rocket} alt="logo" className="w-[5rem]" />
+            <h1 className="text-[3rem] font-bold font-serif text-orange-700">
+              HireSonic
+            </h1>
           </div>
-          <div className="w-full box-content flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-4 mt-6 sm:mt-8 md:mt-10">
-            <div className="flex justify-center w-full lg:w-1/2 h-full">
-              <img
-                src={lady}
-                alt="Banner"
-                className="w-full sm:w-[80%] md:w-[70%] rounded-lg"
-              />
-            </div>
-            <div className="flex flex-col items-center justify-center mt-2 lg:mt-5 w-full lg:w-1/2 h-full space-y-3 sm:space-y-4 px-2 sm:px-4 lg:pr-8 text-center lg:text-left">
-              <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-orange-700 font-serif">
-                Welcome to HireSonic! 🚀 
-              </p>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold text-gray-700 font-mono">
-                Ace your next interview with AI-powered
-                coaching that feels just like the real deal. <br />💡 Practice with
-                hyper-realistic simulations <br /> 🎯 Get instant feedback on your
-                answers <br /> 📊 Improve faster with personalized tips <br /> Ready to
-                outperform the competition? Let’s get started!</p>
+          {isLoggedIn ? (
+            <button 
+              onClick={handleLogout}
+              className="bg-red-500 text-white p-4 text-center items-center flex justify-center rounded-lg w-[6rem] h-[2.5rem] hover:bg-red-600"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/signup" className="bg-orange-500 text-white p-4 text-center items-center flex justify-center rounded-lg w-[6rem] h-[2.5rem]">
+              LogIn
+            </Link>
+          )}
+        </div>
+        <div className="w-full box-content flex flex-row items-center  space-4 mt-10">
+          <div className="flex justify-center w-1/2 h-full">
+            <img
+              src={lady}
+              alt="Banner"
+              className="w-[70%] rounded-lg "
+            />
+          </div>
+          <div className="flex flex-col items-center justify-center mt-5 w-1/2 h-full space-y-4 pr-8">
+            <p className="text-[3.5rem] font-bold text-orange-700 font-serif">
+              Welcome to HireSonic! 🚀 
+            </p>
+            <p className="text-[1.8rem] font-semibold text-gray-700 font-mono">
+              Ace your next interview with AI-powered
+              coaching that feels just like the real deal. <br />💡 Practice with
+              hyper-realistic simulations <br /> 🎯 Get instant feedback on your
+              answers <br /> 📊 Improve faster with personalized tips <br /> Ready to
+              outperform the competition? Let’s get started!</p>
 
-              {isLoggedIn ? (
-                <Link to="/generate" className="bg-orange-500 text-white px-4 sm:px-6 py-2 sm:py-3 items-center flex justify-center text-sm sm:text-base md:text-lg lg:text-xl cursor-pointer font-mono rounded-lg hover:bg-orange-600 transition-colors">
-                  Get Started
-                </Link>
-              ) : (
-                <div className="text-center space-y-3">
-                  <p className="text-sm sm:text-base md:text-lg text-orange-600 font-medium">
-                    🔐 Please authenticate to start your interview journey
-                  </p>
-                  <Link to="/signup" className="bg-orange-500 text-white px-4 sm:px-6 py-2 sm:py-3 items-center flex justify-center text-sm sm:text-base md:text-lg lg:text-xl cursor-pointer font-mono rounded-lg hover:bg-orange-600 transition-colors">
-                    Sign Up / Login
-                  </Link>
-                </div>
-              )}
-            </div>
+            <Link to="/generate" className="bg-orange-500 text-white p-4 items-center flex justify-center text-[1.2rem] cursor-pointer font-mono rounded-lg w-[10rem] h-[3rem] ">
+              Get Started
+            </Link>
           </div>
+        </div>
 
         {isLoggedIn && (
           <div className=" flex flex-col w-[85%]  space-4 mt-10 ">

@@ -14,7 +14,7 @@ const OAuth = () => {
       const result = await signInWithPopup(auth, provider);
       
       // Make API call to /user/google
-      const response = await fetch('http://localhost:5000/user/google', {
+      const response = await fetch('https://hiresonic.onrender.com/user/google', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

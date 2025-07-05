@@ -14,13 +14,13 @@ const Feedback = () => {
         setLoading(true);
         
         // First, fetch feedback by ID
-        const feedbackRes = await fetch(`http://localhost:5000/interview/feedback/${feedbackId}`);
+        const feedbackRes = await fetch(`https://hiresonic.onrender.com/interview/feedback/${feedbackId}`);
         if (!feedbackRes.ok) throw new Error("Failed to fetch feedback");
         const feedbackData = await feedbackRes.json();
         setFeedback(feedbackData.feedback);
         
         // Then, fetch interview using interviewId from feedback
-        const interviewRes = await fetch(`http://localhost:5000/interview/get/${feedbackData?.feedback?.interviewId}`);
+        const interviewRes = await fetch(`https://hiresonic.onrender.com/interview/get/${feedbackData?.feedback?.interviewId}`);
         if (!interviewRes.ok) throw new Error("Failed to fetch interview");
         const interviewData = await interviewRes.json();
         setInterview(interviewData.interview);

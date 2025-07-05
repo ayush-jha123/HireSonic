@@ -20,7 +20,7 @@ const Interview = () => {
   useEffect(() => {
     const fetchInterview = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/interview/get/${id}`, {
+        const response = await fetch(`https://hiresonic.onrender.com/interview/get/${id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

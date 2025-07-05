@@ -21,7 +21,7 @@ const SignUp = () => {
     try {
       if (toogle) {
         // Sign Up API call
-        const response = await fetch('http://localhost:5000/user/signup', {
+        const response = await fetch('https://hiresonic.onrender.com/user/signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const SignUp = () => {
         
       } else {
         // Sign In API call
-        const response = await fetch('http://localhost:5000/user/signin', {
+        const response = await fetch('https://hiresonic.onrender.com/user/signin', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

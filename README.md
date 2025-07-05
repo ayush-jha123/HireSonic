@@ -1,4 +1,3 @@
-```markdown
 # HireSonic - AI-Powered Interview Preparation Platform
 
 ## 🚀 Overview
