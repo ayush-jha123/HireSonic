@@ -1,9 +1,5 @@
-Here's a comprehensive `README.md` for your HireSonic project with placeholders for images and a professional structure:
-
 ```markdown
 # HireSonic - AI-Powered Interview Preparation Platform
-
-![HireSonic Banner](https://via.placeholder.com/1200x400?text=HireSonic+Banner) <!-- Replace with actual banner image -->
 
 ## 🚀 Overview
 HireSonic is an AI-powered interview platform that helps candidates practice technical and behavioral interviews with an AI voice agent. Users can create personalized interviews based on role, tech stack, and difficulty level, then receive detailed feedback on their performance.
@@ -35,7 +31,7 @@ graph TD
     D --> B
 ```
 
-## 🎨 UI Screenshots (Replace with your actual images)
+## 🎨 UI Screenshots
 
 ### 1. Home Page
 ![Home Page](https://github.com/user-attachments/assets/70b1607b-0595-4bdb-8fd4-8e2582277400)
