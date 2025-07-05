@@ -1,5 +1,8 @@
 # HireSonic - AI-Powered Interview Preparation Platform
 
+## 🌐 Live Demo
+**Try the application live:** [https://hiresonic.netlify.app/](https://hiresonic.netlify.app/)
+
 ## 🚀 Overview
 HireSonic is an AI-powered interview platform that helps candidates practice technical and behavioral interviews with an AI voice agent. Users can create personalized interviews based on role, tech stack, and difficulty level, then receive detailed feedback on their performance.
 
