@@ -1,10 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Agent from "./Agent";
 
 const Interview = () => {
   const { id } = useParams();
-  const [interview, setInterview] = React.useState(null);
+  const [interview, setInterview] = useState(null);
+  const [userName, setUserName] = useState("");
+  const [userId, setUserId] = useState("");
+
+  useEffect(() => {
+    // Get user data from localStorage (authentication is already checked at route level)
+    const storedUserId = localStorage.getItem('userId');
+    const storedUserName = localStorage.getItem('userName');
+    
+    setUserName(storedUserName);
+    setUserId(storedUserId);
+  }, []);
 
   useEffect(() => {
     const fetchInterview = async () => {
@@ -29,12 +40,11 @@ const Interview = () => {
 
     fetchInterview();
   }, [id]);
-  // console.log(interview);
-  // console.log("Interview ID:", id);
+
   return (
     <div>
       {/* <h1>Take Interview</h1> */}
-      <Agent questions={interview?.questions} type="take"/>
+      <Agent questions={interview?.questions} type="take" username={userName} userId={userId} interviewId={id}/>
     </div>
   );
 };
