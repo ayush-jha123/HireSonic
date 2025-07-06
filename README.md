@@ -212,4 +212,4 @@ We welcome contributions! Please follow these steps:
 This project is currently unlicensed. Contact the author for usage permissions.
 
 ## 📧 Contact
-For inquiries or support, contact [your-email@example.com](mailto:kumarayushjha123@gmail.com)
+For inquiries or support, contact [Mail](mailto:kumarayushjha123@gmail.com)
