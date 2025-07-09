@@ -124,10 +124,6 @@ sequenceDiagram
     Backend->>User: Displays feedback report
 ```
 
-Here's the complete, polished **Future Scope** section ready for your README.md file, with proper formatting, visualizations, and clear structure:
-
----
-
 ## 🌟 Future Scope & Evolution Roadmap
 
 ### 1. **Custom Voice Agent Development**
